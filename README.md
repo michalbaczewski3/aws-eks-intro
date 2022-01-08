@@ -1,2 +1,2 @@
 # aws-eks-intro
-Simple AWS EKS app - team knowledge share
+Simple project created to share knowledge in the team.
