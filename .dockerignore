@@ -1,0 +1,29 @@
+# Dockerfile
+**/Dockerfile
+
+# Build directories
+**/build/
+**/out/
+**/lib/
+**/dist/
+
+# Node modules
+**/node_modules/
+
+# Dev shell scripts
+**/build.sh
+**/install.sh
+**/develop.sh
+
+# package-lock
+**/package-lock.json
+
+# Logs
+**/logs
+**/*.log
+**/npm-debug.log*
+
+# README
+**/README.md
+
+
