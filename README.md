@@ -34,3 +34,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html \
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ \
 `kubectl version --client`
+
+### Postman (or other )
+
+https://www.postman.com/downloads/ or other way (ex. Ubuntu Software )
