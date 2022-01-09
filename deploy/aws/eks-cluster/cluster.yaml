@@ -1,0 +1,19 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-intro-cluster-1
+  region: eu-central-1
+
+nodeGroups:
+  - name: ng-1
+    instanceType: t3.large
+    desiredCapacity: 3
+    volumeSize: 30
+    volumeType: gp2
+    ssh:
+      publicKeyName: eksIntroKey
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["audit", "authenticator", "controllerManager"]
+    logRetentionInDays: 60

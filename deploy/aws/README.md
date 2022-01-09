@@ -33,7 +33,7 @@ Find service -> Account (right top corner, under username) -> IAM User and Role 
 
 https://console.aws.amazon.com/console/home \
 choose region (ex. eu-central-1, right top corner) \
-Find service -> EC2 -> Kay pair name: eksKey -> store in secret place .pem file
+Find service -> EC2 -> Kay pair name: eksIntroKey -> store in secret place .pem file
 
 #### Access key
 
@@ -62,10 +62,4 @@ region=eu-central-1 output=json
 * limit
 * dashboard
 * registry
-* strapi
-* wsz-tenant
-* wsz-elk-export
-* wsz-elk-search, wsz-sync, wsz-strapi-proxy, wsz-strapi-log
-* ingress (without ui)
-* wsz-ui (with ingress/domain url)
-* ingress
+* hello
