@@ -1,7 +1,5 @@
-import { NTException } from '../model/exception/n-t-exception';
+import { NTException, nTExceptionGroupName, NTExceptionTypeEnum } from '../model';
 import { getPwnException } from './exception-service';
-import { NTExceptionTypeEnum } from '../model/exception/n-t-exception-type-enum';
-import { nTExceptionGroupName } from '../model/exception/n-t-exception-group-const';
 
 export function getAndLogExcBody(err: any): NTException {
   try {
