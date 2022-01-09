@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: eks-intro-ingress
+  # https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/
+  annotations:
+    kubernetes.io/ingress.class: nginx
+#    COMMENT / UNCOMMENT with tls
+#    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+#  tls:
+#    - hosts:
+#        - xyz.eu
+#        - xyz.eu
+#      secretName: eks-intro-secret-tls
+  rules:
+#    - host: xyz.eu
+#      http:
+    - http:
+        paths:
+          - path: /hello(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-service
+                port:
+                  number: 3000
+#    - host: xyz.eu
+#      http:
+#        paths:
+#          - path: /()(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: strapi
+#                port:
+#                  number: 1337
