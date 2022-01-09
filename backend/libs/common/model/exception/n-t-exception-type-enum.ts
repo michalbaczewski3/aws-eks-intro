@@ -1,0 +1,15 @@
+export enum NTExceptionTypeEnum {
+  UnexpectedApiException = 'UnexpectedApiException',
+  EntityNotFoundException = 'EntityNotFoundException',
+  EntityAlreadyExistsException = 'EntityAlreadyExistsException',
+  UserInBufferException = 'UserInBufferException',
+  ValidationException = 'ValidationException',
+  IllegalArgumentException = 'IllegalArgumentException',
+  UnauthorizedException = 'UnauthorizedException',
+  AccessDeniedException = 'AccessDeniedException',
+  NotFoundException = 'NotFoundException',
+  BadRequestException = 'BadRequestException',
+  ServiceNotAvailableException = 'ServiceNotAvailableException',
+  ErrorInternalException = 'ErrorInternalException',
+  RequestTimeoutException = 'RequestTimeoutException',
+}

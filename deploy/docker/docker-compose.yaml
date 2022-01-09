@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  ##### Backend #####
+  wsz-tenant:
+    container_name: hello
+    image: aws-eks-intro/hello:latest
+    restart: always
+    networks:
+      - aei-net
+    ports:
+      - "1101:3000"
+      - "9101:9229"
+    env_file:
+      - ./env/hello.env
+
+  ##### Network #####
+networks:
+  aei-net:
+    external: true

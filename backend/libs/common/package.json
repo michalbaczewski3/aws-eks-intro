@@ -1,0 +1,29 @@
+{
+  "name": "common",
+  "version": "0.0.1",
+  "author": "Michal Baczewski",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "axios": "0.21.1",
+    "express": "4.17.1",
+    "jsonwebtoken": "8.5.1",
+    "mongodb": "3.7.3"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.9",
+    "@types/jsonwebtoken": "8.5.0",
+    "@types/mongodb": "3.6.18",
+    "@types/node": "15.12.4",
+    "ts-node": "10.0.0",
+    "typescript": "4.3.4"
+  }
+}
