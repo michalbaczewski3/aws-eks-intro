@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongodb-sts
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  serviceName: "mongodb-service"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      terminationGracePeriodSeconds: 120
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - mongodb
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: mongodb
+          image: mongo:4.4.6
+          resources:
+            requests:
+              cpu: "0.25"
+              memory: "1Gi"
+            limits:
+              cpu: "0.5"
+              memory: "2Gi"
+          ports:
+            - containerPort: 27017
+          command:
+            - "mongod"
+            - "--bind_ip"
+            - "0.0.0.0"
+            - "--replSet"
+            - "repl-set-1"
+          volumeMounts:
+            - name: mongodb-persistent-storage
+              mountPath: /mongodb/data
+  volumeClaimTemplates:
+    - metadata:
+        name: mongodb-persistent-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "gp2"
+        resources:
+          requests:
+            storage: 30Gi
