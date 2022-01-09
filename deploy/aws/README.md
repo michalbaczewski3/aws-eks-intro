@@ -57,9 +57,20 @@ region=eu-central-1 output=json
 `aws sts get-caller-identity`
 
 # AWS INIT
-
+## Stage I
 * eks-cluster
 * limit
 * dashboard
 * registry
 * hello
+* ingress
+
+## Stage II
+* mongo
+
+## Stage III
+* s3
+* strapi
+
+## Stage IV
+* tls
