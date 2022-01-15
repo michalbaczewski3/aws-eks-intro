@@ -1,7 +1,6 @@
 import { infoSchemaV0 } from './schema/info-schema-v0';
 import { createBootstrapInfo } from './bootstrap/info-bootstrap';
-import { DbEnum, initMongoClient, interpretMongoErrorOnDbInit } from 'common';
-import { DbCollectionEnum } from 'common/model/db/db-collection-enum';
+import { DbCollectionEnum, DbEnum, initMongoClient, interpretMongoErrorOnDbInit } from 'common';
 import { MongoClient } from 'mongodb';
 
 export let mongoClient: MongoClient;

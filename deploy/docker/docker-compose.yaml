@@ -2,8 +2,22 @@ version: '3.8'
 
 services:
 
+  ##### External #####
+  mongo:
+    container_name: mongo
+    image: mongo:4.4.6
+    restart: always
+    networks:
+      - aei-net
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo/data/db:/data/db:delegated
+    env_file:
+      - ./env/mongo.env
+
   ##### Backend #####
-  wsz-tenant:
+  hello:
     container_name: hello
     image: aws-eks-intro/hello:latest
     restart: always
@@ -14,6 +28,18 @@ services:
       - "9101:9229"
     env_file:
       - ./env/hello.env
+
+  info:
+    container_name: info
+    image: aws-eks-intro/info:latest
+    restart: always
+    networks:
+      - aei-net
+    ports:
+      - "1102:3000"
+      - "9102:9229"
+    env_file:
+      - ./env/info.env
 
   ##### Network #####
 networks:

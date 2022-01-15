@@ -1,6 +1,5 @@
 import { mongoClient } from '../db-init';
-import { DbEnum, NTInfo } from 'common';
-import { DbCollectionEnum } from 'common/model/db/db-collection-enum';
+import { DbCollectionEnum, DbEnum, NTInfo } from 'common';
 import { ObjectId } from 'mongodb';
 
 export async function createBootstrapInfo(): Promise<void> {
