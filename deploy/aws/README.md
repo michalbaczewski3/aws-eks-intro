@@ -69,8 +69,8 @@ region=eu-central-1 output=json
 * mongo
 
 ## Stage III
-* s3
-* strapi
+* info
+* ingress
 
 ## Stage IV
 * tls
