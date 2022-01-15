@@ -1,5 +1,5 @@
 export enum DbEnum {
-  Admin = 'admin',
-  Strapi = 'strapi',
-  Aei = 'aei',
+  admin = 'admin',
+  strapi = 'strapi',
+  aei = 'aei',
 }

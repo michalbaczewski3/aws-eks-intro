@@ -1,8 +1,7 @@
 import { MongoClient } from 'mongodb';
 import { getMongoDriverUrlFromEnv } from './db-url-builder-service';
-import { DbEnum, mongoError, MongoErrorCodeEnum } from '../model/db';
+import { DbEnum, mongoError, MongoErrorCodeEnum, NTExceptionTypeEnum } from '../model';
 import { getPwnException } from '../service';
-import { NTExceptionTypeEnum } from '../model/exception';
 
 export function interpretMongoErrorOnDbInit(e: any, collectionName: string): void {
   if (e.name && e.name === mongoError && e.code === MongoErrorCodeEnum.ListeningError) {
@@ -30,7 +29,7 @@ export async function initMongoClient(): Promise<MongoClient> {
   console.log(`[${new Date().toISOString()}]: Init mongo client started...`);
   const mongoClient: MongoClient = createMongoClient();
   await mongoClient.connect();
-  await mongoClient.db(DbEnum.Admin).command({ ping: 1 });
+  await mongoClient.db(DbEnum.admin).command({ ping: 1 });
   console.log(`[${new Date().toISOString()}]: Init mongo client succeed`);
   return mongoClient;
 }
