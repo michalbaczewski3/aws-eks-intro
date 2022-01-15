@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: info-deployment
+  labels:
+    app: info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: info
+  template:
+    metadata:
+      labels:
+        app: info
+    spec:
+      containers:
+        - name: info
+          image: 871866584905.dkr.ecr.eu-central-1.amazonaws.com/aws-eks-intro/info:0.0.2
+          resources:
+            requests:
+              cpu: "30m"
+              memory: "125Mi"
+            limits:
+              cpu: "60m"
+              memory: "250Mi"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: MONGODB_HOSTS
+              value: "mongodb-sts-0.mongodb-service.default.svc.cluster.local:27017,mongodb-sts-1.mongodb-service.default.svc.cluster.local:27017,mongodb-sts-2.mongodb-service.default.svc.cluster.local:27017"
+            - name: MONGODB_CONNECTION_OPTIONS
+              value: "?replicaSet=repl-set-1&poolSize=20&w=majority"
+            - name: MONGODB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: username
+            - name: MONGODB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: password

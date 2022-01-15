@@ -27,6 +27,13 @@ spec:
                 name: hello-service
                 port:
                   number: 3000
+          - path: /info(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: info-service
+                port:
+                  number: 3000
 #    - host: xyz.eu
 #      http:
 #        paths:
