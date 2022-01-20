@@ -6,14 +6,14 @@ All secrets should be changed during deployment - repo secrets are only examples
 
 ### Min permissions, polices and groups (as root)
 
-EksAccess: \
+EksIntroAccess: \
 https://eksctl.io/usage/minimum-iam-policies/ \
-ALBIngressControllerIAMPolicy (https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/): \
+EksIntroALBIngressControllerIAMPolicy (https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/): \
 https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/iam-policy.json 
 
 #### Admin group polices:
 
-* EksAccess (custom - prev step)
+* EksIntroAccess (custom - prev step)
 * AmazonEC2FullAccess
 * IAMFullAccess
 * AmazonS3FullAccess
@@ -21,7 +21,7 @@ https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.
 * AWSBillingReadOnlyAccess
 * AWSCloudFormationFullAccess
 * ElasticLoadBalancingFullAccess
-* ALBIngressControllerIAMPolicy (custom - prev step)
+* EksIntroALBIngressControllerIAMPolicy (custom - prev step)
 * AmazonEC2ContainerRegistryFullAccess
 
 #### Admin billing info:

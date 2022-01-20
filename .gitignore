@@ -1,9 +1,9 @@
 ##### Docker Volume #####
-deploy/docker/verdaccio/storage/
-deploy/docker/verdaccio/plugins/
-deploy/docker/mongo/data
-deploy/docker/strapi/**
-deploy/docker/elasticsearch/data
+deploy/local/verdaccio/storage/
+deploy/local/verdaccio/plugins/
+deploy/local/mongo/data
+deploy/local/strapi/**
+deploy/local/elasticsearch/data
 *tsconfig.dev.json
 
 ##### Node #####
