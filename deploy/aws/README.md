@@ -9,12 +9,34 @@ All secrets should be changed during deployment - repo secrets are only examples
 EksIntroAccess: \
 https://eksctl.io/usage/minimum-iam-policies/ \
 EksIntroALBIngressControllerIAMPolicy (https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/): \
-https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/iam-policy.json 
+https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/iam-policy.json
+ECRAccess: \
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:CompleteLayerUpload",
+                "ecr:GetAuthorizationToken",
+                "ecr:UploadLayerPart",
+                "ecr:InitiateLayerUpload",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:PutImage"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 #### Admin group polices:
 
 * EksIntroAccess (custom - prev step)
 * AmazonEC2FullAccess
+* AmazonEC2ContainerRegistryFullAccess
+* ECRAccess (custom - prev step)
 * IAMFullAccess
 * AmazonS3FullAccess
 * AmazonVPCFullAccess

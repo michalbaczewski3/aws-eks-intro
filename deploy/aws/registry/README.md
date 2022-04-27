@@ -1,6 +1,7 @@
 #Init
 ## Check group polices - req:
 * AmazonEC2ContainerRegistryFullAccess
+* ECRAccess (custom - check main README)
 
 `aws ecr describe-repositories`
 
